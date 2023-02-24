@@ -1,181 +1,186 @@
-:root{
-    --clr-primary-400: hsl(158,36%, 37%);
-    --clr-primary-500: hsl(158,36%, 20%);
-    --clr-secondary-200: hsl(30,38%,92%);
+/*font-family:'Fraunces', serif;
+   font-family: 'Montserrat', sans-serif;
+*/
 
-
-    --clr-neutral-900: hsl(212,21%,14%);
-    --clr-neutral-400: hsl(228, 12%, 48%);
-    --clr-neutral-100: hsl(0,0%,100%);
-
-
-    --ff-accent: 'Fraunces', serif;
-    --ff-base: 'Montserrat', sans-serif;
-
-    --fw-regular: 500;
-    --fw-bold: 700;
-
-}
-
-*, *::before, *::after {
-    box-sizing: border-box;
-  }
-  /*
-    2. Remove default margin
-  */
-  * {
-    margin: 0;
-  }
-  /*
-    3. Allow percentage-based heights in the application
-  */
-  html, body {
-    height: 100%;
-  }
-  /*
-    Typographic tweaks!
-    4. Add accessible line-height
-    5. Improve text rendering
-  */
-  body {
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
-  /*
-    6. Improve media defaults
-  */
-  img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-  }
-  /*
-    7. Remove built-in form typography styles
-  */
-  input, button, textarea, select {
-    font: inherit;
-  }
-  /*
-    8. Avoid text overflows
-  */
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
-  
-  /*General Styling*/
-
-  body{
-    font-family: var(--ff-base);
-    font-weight: var(--fw-regular);
-    font-size: var(0.875rem);
-    color: var(--clr-neutral-900);
-    background-color:var(--clr-secondary-200);
-    display: grid;
-    min-height: 100vh;
-    place-content:center;
-    margin:1rem;
+*{
+    margin:0; /*removes the browers margin*/
+    padding: 0;
+    box-sizing:border-box;
     
-  }
-
-/*Utilities*/
-.flex-group{
-display: flex;
-gap: 1rem;
-flex-wrap: wrap;
-align-items: center;
-
 }
 
-
-
-.visually-hidden:not(:focus):not(:active) 
-{
-    clip: rect(0 0 0 0); 
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap; 
-    width: 1px;
-}
-
-/*button*/
-
-.button{
-    cursor: pointer;
-    padding: 0.75em 1.5em;
-    text-decoration: none;
-    border: 0;
-    display: inline-flex;
+body{
+    font-family: 'Montserrat', sans-serif;
+    background: hsl(30, 38%, 92%);
+    font-size: 14px;
+    min-height: 100vh;
+    display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
-    background-color:var(--clr-primary-400);
-    border-radius: 0.5rem;
-    color: var(--clr-neutral-100);
-    font-weight: var(--fw-bold);
-    font-size: 0.925rem;
-
-}
-
-.button[data-icon="shopping-cart"]::before
-{
-content:"";
-background-image: url("images/icon-cart.svg");
-width: 15px;
-height: 16px;
 
 
 }
 
-.button:is(:hover,:focus){
-background-color: var(--clr-primary-500);
-
+.container{
+    margin: 0 auto; /*for space of 30px at left and right*/
+    padding:0 30px; 
+    
 
 }
-/*product styles*/
-.product{
-    --content-padding: 1.5rem;
-    --content-spacing: 1rem;
-background-color: var(--clr-neutral-100);
-overflow: hidden;
-border-radius: 0.5rem;
-display: grid;
-max-width: 600px;
-}
 
-@media(min-width: 600px)
-{
-    .product{
-        --content-padding: 2rem;
-        grid-template-columns:1fr 1fr;
+.grid{
+    max-width:700px;
+    display:grid;
+     grid-template-columns: 1fr 1fr;             /*To divide it into equal columns (fr means fractions) */
+     background:#fff;
+     border-radius: 15px;
+     overflow:hidden;
+
+    }
+
+    .img img {
+        max-width:100%; /*so they both have same width*/
+        display: inherit;  /*solves problem of having the image shorter than the other column length and therefore seeing the bg-col of the other column*/
+
+
+    }
+
+    .card-content{
+        padding:35px; /*it will have 35px padding at the top, left, right, and bottom*/
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .pro-cat{
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size:13px;
+        color:  hsl(228, 12%, 48%);
+        font-weight: 500;
+    }
+    
+    h2.pro-name{
+        font-family:'Fraunces', serif;
+        font-size: 34px;
+        line-height:1em;  /*responsible for the space in height between the gabrielle essence and Eau De Parfum texts */
+        color: hsl(212, 21%, 14%);
+    }
+
+    p.pro-des{
+        color: hsl(228, 12%, 48%);
+        line-height: 1.6em;
+    }
+
+    .price{
+        display: flex;
+        align-items: center;
+    }
+
+    p.current-price{
+        font-family:'Fraunces', serif;
+        color: hsl(158, 36%, 37%);
+        font-size: 35px;
+        margin-right: 25px ; /*to add a gap between the two prices*/
+        
+
+    }
+
+    p.old-price{
+        color: hsl(158, 36%, 37%);
+        text-decoration: line-through;
+        
+    }
+
+    button.btn1{
+        background: hsl(158, 36%, 37%);
+        border: none; /* to remove the site's default border*/
+        outline: none;
+        padding: 14px 0; /*top and right is 12px nd left and right as 0*/
+        border-radius: 12px;
+        color:white;
+        font-size: 14px;
+        font-weight:700;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width:100%;
+
+
+    }
+
+    button.btn1 img{
+        padding-right:7px;  /*makes a tiny space between icon and text in the button*/
+    }
+
+    button.btn1:hover{
+        
+        background: hsl(158, 36%, 23%); /*The l in  hsl will make color darker as you reduce the percentage i.e l with 23% is darker than 36%*/
+        
+    }
+
+    @media only screen and (max-width:628px){
+        .grid{
+            grid-template-columns: 1fr;
+        }
+
+        .img img{
+            max-height: 450px;
+            width: 100%;
+            object-fit:cover; /*to avoid shrinking the image while it stetches*/
+
+        }
+
+        .card-content{
+            display:block;
+        }
+
+        h6.pro-cat, h2.pro-name, p.pro-des, .price{
+        padding-bottom:23px;  /*creates gap/padding under each element, basically b/t each and the next*/
+        
+        }
+    }
+
+    @media only screen and (max-width:375px){
+        .container{
+            margin:15px auto; /*top and bottom; left and right*/
+            padding: 0 15px;
+            
+        }
+
+        .img img{
+            max-height: 290px;
+        }
+
+        .card-content{
+            padding: 24px;
+        }
+
+        h6.pro-cat, h2.pro-name, p.pro-des, .price{
+            padding-bottom:16px;  /*creates gap/padding under each element, basically b/t each and the next*/
+            
+    }
+
+    h2.pro-name{
+        font-size: 28px;
+    }
+
+    p.pro-des{
+        font-size: 12px;
+
+    }
+
+    p.current-price{
+        font-size: 23px;
+    }
+
+    button.btn1{
+        padding: 12px 0;
+        font-size: 13px;
+        
     }
 }
 
-h1,h2,h3{
-    line-height: 1;
+.last{
+    
+    text-align: center;
 }
-.product__content{
-    padding: var(--content-padding);
-    display: grid;
-    gap: var(--content-spacing);
-
-}
-
-.product__category{
-letter-spacing: 5px;
-text-transform: uppercase;
-font-size: .8125rem;
-}
-
-.product__title{
-    font-size: 2rem;
-    font-family: var(--ff-accent);
-    color: var(--clr-neutral-900);
-}
-
-.product__price{
-    font-size: 2rem;
-    font-family: var(--ff-accent);
-    color: var(--clr-primary-400);
-}
-
